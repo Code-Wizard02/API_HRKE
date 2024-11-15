@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import {AuthService} from '../services/auth.service';
 
 const materialModules = [
   RouterOutlet,
@@ -14,7 +14,6 @@ const materialModules = [
   MatCardModule,
   MatInputModule,
   MatButtonModule,
-  MatFormFieldModule,
 ];
 
 @Component({
@@ -26,10 +25,26 @@ const materialModules = [
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
+  constructor(private authService: AuthService, private router: Router) {}
   user: string = '';
   password: string = '';
   loginValid: boolean = true;
-  year: number = new Date().getFullYear();
 
-  login() {}
+  login() {
+    this.authService.login(this.user, this.password).subscribe(
+      success => {
+        console.log('Login success:', success);
+        if (success) {
+          this.router.navigate(['/dashboard']); // Redirige al usuario a la página principal
+        } else {
+          this.loginValid = false;
+        }
+      },
+      error => {
+        console.log('Login error:', error);
+        this.loginValid = false;
+      }
+    );
+  }
 }
+
