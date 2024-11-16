@@ -1,6 +1,6 @@
 <div *ngIf="!isLoggedIn">
-  <app-login (loginSuccess)="onLoginSuccess()"></app-login>
+  <app-login (loginSuccess)="onLoginSuccess($event)"></app-login>
 </div>
 <div *ngIf="isLoggedIn">
-  <app-dashboard></app-dashboard>
+  <app-dashboard [userName]="userName"></app-dashboard>
 </div>

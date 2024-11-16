@@ -25,7 +25,7 @@ const materialModules = [
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
-  @Output() loginSuccess = new EventEmitter<void>();
+  @Output() loginSuccess = new EventEmitter<string>();
   constructor(private authService: AuthService, private router: Router) {}
   user: string = '';
   password: string = '';
@@ -38,7 +38,7 @@ export class LoginComponent {
         console.log('Login success:', success);
         if (success) {
           this.isLoggedIn = true;
-          this.loginSuccess.emit();
+          this.loginSuccess.emit(this.user);
           this.router.navigate(['/dashboard']); // Redirige al usuario a la página principal
         } else {
           this.loginValid = false;

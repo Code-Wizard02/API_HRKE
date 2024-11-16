@@ -14,9 +14,11 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   title = 'Login_Angular_HRKE';
   isLoggedIn = false;
+  userName:string = '';
   
-  onLoginSuccess() {
+  onLoginSuccess(userName:string) {
     this.isLoggedIn = true;
+    this.userName = userName;
   }
 
   get showDashboard() {
