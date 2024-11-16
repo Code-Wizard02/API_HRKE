@@ -1,2 +1,6 @@
-<router-outlet></router-outlet>
-<app-login></app-login>
+<div *ngIf="!isLoggedIn">
+  <app-login (loginSuccess)="onLoginSuccess()"></app-login>
+</div>
+<div *ngIf="isLoggedIn">
+  <app-dashboard></app-dashboard>
+</div>

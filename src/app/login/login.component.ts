@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { RouterOutlet, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -25,16 +25,20 @@ const materialModules = [
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
+  @Output() loginSuccess = new EventEmitter<void>();
   constructor(private authService: AuthService, private router: Router) {}
   user: string = '';
   password: string = '';
   loginValid: boolean = true;
+  isLoggedIn: boolean = false;
 
   login() {
     this.authService.login(this.user, this.password).subscribe(
       success => {
         console.log('Login success:', success);
         if (success) {
+          this.isLoggedIn = true;
+          this.loginSuccess.emit();
           this.router.navigate(['/dashboard']); // Redirige al usuario a la página principal
         } else {
           this.loginValid = false;
