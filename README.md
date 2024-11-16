@@ -2,10 +2,12 @@
 
 ## 1. Creando Nuevo Proyecto
 Crear un nuevo proyecto angular: `ng new Login_Angular_HRKE`. Dirigirse a la carpeta creada: `cd Login_Angular_HRKE`. Abrir el proyecto con el editor de código preferido.
+
 ![Creando proyecto Angular](/src/img/1.png)
 
 ## 2. Programando Consumo
 Creamos un servicio "auth" dentro de una nueva carpeta services: `ng generate service services/auth`.
+
 ![Auth Service](/src/img/2.png)
 
 ### 2.1. Modulos
@@ -65,6 +67,7 @@ export const appConfig: ApplicationConfig = {
 
 ## 3. Login Angular Material
 Agregamos la libreria Material para el diseño de nuestros componentes: `ng add @angular/material`. Y creamos un componente Login: `ng generate component Login`.
+
 ![Creando Componente Login](/src/img/3.png)
 
 ### 3.1 Plantilla Login
@@ -191,6 +194,7 @@ mat-card-header {
 
 ## 4.Dashboard Angular Material
 Creamos un componente Dashboard: `ng generate component Dashboard`.
+
 ![Creando Componente Dashboard](/src/img/4.png)
 
 ### 4.1 Plantilla Dashboard
