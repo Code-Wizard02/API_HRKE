@@ -3,12 +3,11 @@
       <mat-icon>menu</mat-icon>
     </button>
     <span>Bienvenido: {{ userName }}</span>
-    <span class="example-spacer"></span>
-    <img [src]="userAvatar" alt="Avatar" width="50" height="50" class="user-avatar">
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <button mat-icon-button [matMenuTriggerFor]="userMenu" >
+      <img [src]="userAvatar" alt="User Avatar" class="user-avatar">
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
-  </mat-toolbar>
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item (click) = "logout()">LogOut</button>
+    </mat-menu>
+</mat-toolbar>
   
