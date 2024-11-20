@@ -12,4 +12,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 })
 export class DashboardComponent {
   @Input() userName: string = '';
+  @Input() userAvatar: string = '';
+  
 }
