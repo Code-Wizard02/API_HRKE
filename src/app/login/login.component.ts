@@ -1,11 +1,16 @@
-import { Component, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { RouterOutlet, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import {AuthService} from '../services/auth.service';
+import { AuthService } from '../services/auth.service';
 
 const materialModules = [
   RouterOutlet,
@@ -25,7 +30,10 @@ const materialModules = [
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
-  @Output() loginSuccess = new EventEmitter<string>();
+  @Output() loginSuccess = new EventEmitter<{
+    userName: string;
+    avatar: string;
+  }>();
   constructor(private authService: AuthService, private router: Router) {}
   user: string = '';
   password: string = '';
@@ -34,21 +42,20 @@ export class LoginComponent {
 
   login() {
     this.authService.login(this.user, this.password).subscribe(
-      success => {
-        console.log('Login success:', success);
-        if (success) {
+      response => {
+        console.log('Login success:', response.success);
+        if (response.success) {
           this.isLoggedIn = true;
-          this.loginSuccess.emit(this.user);
+          this.loginSuccess.emit({userName: this.user, avatar: response.avatar!});
           this.router.navigate(['/dashboard']); // Redirige al usuario a la página principal
         } else {
           this.loginValid = false;
         }
       },
-      error => {
+      (error) => {
         console.log('Login error:', error);
         this.loginValid = false;
       }
     );
   }
 }
-
