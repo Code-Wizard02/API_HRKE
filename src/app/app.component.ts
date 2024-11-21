@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CommonModule } from '@angular/common';
-import { UserTableComponent } from "./users-table/users-table.component";
+import { MarvelTableComponent } from "./marvel-table/marvel-table.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent, DashboardComponent, CommonModule, UserTableComponent],
+  imports: [LoginComponent, DashboardComponent, CommonModule, MarvelTableComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

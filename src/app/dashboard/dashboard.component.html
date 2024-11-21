@@ -1,13 +1,12 @@
 <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>Bienvenido: {{ userName }}</span>
-    <button mat-icon-button [matMenuTriggerFor]="userMenu" >
-      <img [src]="userAvatar" alt="User Avatar" class="user-avatar">
-    </button>
-    <mat-menu #userMenu="matMenu">
-      <button mat-menu-item (click) = "logout()">LogOut</button>
-    </mat-menu>
+  <span>CONSUMO DE API </span>
+  <p class="example-spacer"></p>
+  <span>{{ userName }}</span>
+  <button mat-icon-button [matMenuTriggerFor]="userMenu">
+    <img [src]="userAvatar" alt="User Avatar" class="user-avatar" />
+  </button>
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item>Perfil</button>
+    <button mat-menu-item (click)="logout()">LogOut</button>
+  </mat-menu>
 </mat-toolbar>
-  
