@@ -1,0 +1,18 @@
+/* src/app/marvel-table/marvel-table.component.css */
+table {
+    width: 100%;
+  }
+  
+  .mat-elevation-z8 {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .thumbnail {
+    width: 50px;
+    height: auto;
+  }
+
+  .desc{
+    width: 50%;
+    height: auto;
+  }
