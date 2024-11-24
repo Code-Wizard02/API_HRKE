@@ -7,6 +7,7 @@ import {map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
+
   
   private apiUrl = 'https://api.escuelajs.co/api/v1/users';
 
