@@ -7,6 +7,7 @@ import { MarvelService } from '../services/marvel.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
 import { CharacterInfoComponent } from '../character-info/character-info.component';
+import { CharacterDeleteComponent } from '../character-delete/character-delete.component';
 
 @Component({
   selector: 'app-marvel-table',
@@ -19,7 +20,6 @@ export class MarvelTableComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
     'name',
-    // 'description',
     'thumbnail',
     'actions',
   ];
@@ -47,7 +47,7 @@ export class MarvelTableComponent implements OnInit {
     );
   }
 
-  openDialog(character: any): void {
+  openInfo(character: any): void {
     this.dialog.open(CharacterInfoComponent, {
       data: character,
       width: '500px',
@@ -55,14 +55,22 @@ export class MarvelTableComponent implements OnInit {
     });
   }
 
-  deleteCharacter(character: any) {
-    const index = this.dataSource.data.findIndex(
-      (c: any) => c.id === character.id
-    );
-    if (index > -1) {
-      this.dataSource.data.splice(index, 1);
-      this.dataSource._updateChangeSubscription(); // Notify the table about the data change
-    }
+  openDeleteCharacter(character: any):void{
+    const dialogRef = this.dialog.open(CharacterDeleteComponent, {
+      data: { name: character.name }
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        const index = this.dataSource.data.findIndex(
+          (c: any) => c.id === character.id
+        );
+        if (index > -1) {
+          this.dataSource.data.splice(index, 1);
+          this.dataSource._updateChangeSubscription(); // Notify the table about the data change
+        }
+      }
+    });
   }
 
   editCharacter(character: any) {
