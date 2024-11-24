@@ -1,0 +1,12 @@
+<div class="divprincipal" [ngStyle]="{'background-image':backgroundImageURL}">
+    <button class="close-button" (click)="onNoClick()">x</button>
+    <h1 class="nombre" mat-dialog-title>{{ character.name }}</h1>
+    <div mat-dialog-content class="content">
+        <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" alt="{{ character.name }}"
+            class="thumbnail">
+        <p class="descripcion">{{ character.description }}</p>
+    </div>
+    <div mat-dialog-actions>
+        <button class="boton" (click)="onNoClick()" mat-button mat-dialog-close>Cerrar</button>
+    </div>
+</div>

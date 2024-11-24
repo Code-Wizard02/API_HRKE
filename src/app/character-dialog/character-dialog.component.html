@@ -1,0 +1,10 @@
+<div class="divprincipal">
+    <h1 class="nombre" mat-dialog-title>{{ data.name }}</h1>
+    <div mat-dialog-content class="content">
+        <img [src]="data.thumbnail.path + '.' + data.thumbnail.extension" alt="{{ data.name }}" class="thumbnail">
+        <p class="descripcion">{{ data.description }}</p>
+    </div>
+    <div mat-dialog-actions>
+        <button class="boton" (click)="onClosed()" mat-button mat-dialog-close>Cerrar</button>
+    </div>
+</div>
