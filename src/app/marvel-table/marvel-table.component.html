@@ -1,11 +1,15 @@
 <!-- src/app/marvel-table/marvel-table.component.html -->
-<div class="table-container mat-elevation-z8">
+<div [ngClass]="{'table-container':true,'loading':isLoading}" class="mat-elevation-z8">
   <div class="table-header">
     <h1>Marvel Characters</h1>
   </div>
-  <!-- <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter"> -->
   <input matInput [(ngModel)]="filterValue" (ngModelChange)="applyFilter()" placeholder="Buscar personajes">
-  <table mat-table [dataSource]="dataSource" matSort>
+
+  <div class="overlay" *ngIf="isLoading" class="loading">
+    <mat-spinner diameter="100"></mat-spinner>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" matSort *ngIf="!isLoading">
 
     <!-- ID Column -->
     <ng-container matColumnDef="id">
