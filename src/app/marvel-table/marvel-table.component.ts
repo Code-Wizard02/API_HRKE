@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
 import { CharacterInfoComponent } from '../character-info/character-info.component';
 import { CharacterDeleteComponent } from '../character-delete/character-delete.component';
+import { CharacterEditComponent } from '../character-edit/character-edit.component';
 
 @Component({
   selector: 'app-marvel-table',
@@ -17,12 +18,7 @@ import { CharacterDeleteComponent } from '../character-delete/character-delete.c
   styleUrl: './marvel-table.component.css',
 })
 export class MarvelTableComponent implements OnInit {
-  displayedColumns: string[] = [
-    'id',
-    'name',
-    'thumbnail',
-    'actions',
-  ];
+  displayedColumns: string[] = ['id', 'name', 'thumbnail', 'actions'];
   dataSource = new MatTableDataSource<any>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -55,9 +51,9 @@ export class MarvelTableComponent implements OnInit {
     });
   }
 
-  openDeleteCharacter(character: any):void{
+  openDeleteCharacter(character: any): void {
     const dialogRef = this.dialog.open(CharacterDeleteComponent, {
-      data: { name: character.name }
+      data: { name: character.name },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -73,13 +69,22 @@ export class MarvelTableComponent implements OnInit {
     });
   }
 
-  editCharacter(character: any) {
-    const index = this.dataSource.data.findIndex(
-      (c: any) => c.id === character.id
-    );
-    if (index > -1) {
-      this.dataSource.data[index] = character;
-      this.dataSource._updateChangeSubscription(); // Notify the table about the data change
-    }
+  openEditCharacter(character: any) {
+    const dialogRef = this.dialog.open(CharacterEditComponent, {
+      width: '250px',
+      data: { ...character },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        Object.assign(character, result);
+        const index = this.dataSource.data.findIndex(
+          (c: any) => c.id === character.id
+        );
+        if (index > -1) {
+          this.dataSource.data[index] = character;
+          this.dataSource._updateChangeSubscription(); // Notify the table about the data change
+        }
+      }
+    });
   }
 }
