@@ -29,23 +29,27 @@ const materialModules = [
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
+  user: string = '';
+  password: string = '';
+  loginValid= true;
   @Output() loginSuccess = new EventEmitter<{
     userName: string;
     avatar: string;
   }>();
+
   constructor(private authService: AuthService, private router: Router) {}
-  user: string = '';
-  password: string = '';
-  loginValid: boolean = true;
+
   isLoggedIn: boolean = false;
 
-  login() {
+  login(): void {
     this.authService.login(this.user, this.password).subscribe(
-      response => {
-        console.log('Login success:', response.success);
+      (response) => {
         if (response.success) {
           this.isLoggedIn = true;
-          this.loginSuccess.emit({userName: this.user, avatar: response.avatar!});
+          this.loginSuccess.emit({
+            userName: this.user,
+            avatar: response.avatar!,
+          });
           this.router.navigate(['/dashboard']); // Redirige al usuario a la página principal
         } else {
           this.loginValid = false;
