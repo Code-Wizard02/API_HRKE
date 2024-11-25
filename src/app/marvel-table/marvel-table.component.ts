@@ -10,6 +10,8 @@ import { CharacterInfoComponent } from '../character-info/character-info.compone
 import { CharacterDeleteComponent } from '../character-delete/character-delete.component';
 import { CharacterEditComponent } from '../character-edit/character-edit.component';
 import { FormsModule } from '@angular/forms';
+import { MatSpinner } from '@angular/material/progress-spinner';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-marvel-table',
@@ -21,6 +23,8 @@ import { FormsModule } from '@angular/forms';
     MatSortModule,
     MatIcon,
     FormsModule,
+    MatSpinner,
+    CommonModule,
   ],
   templateUrl: './marvel-table.component.html',
   styleUrl: './marvel-table.component.css',
@@ -29,6 +33,7 @@ export class MarvelTableComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'thumbnail', 'actions'];
   dataSource = new MatTableDataSource<any>();
   filterValue: string = '';
+  isLoading: boolean = true;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -39,11 +44,13 @@ export class MarvelTableComponent implements OnInit {
   }
 
   loadCharacters(limit: number = 50, offset: number = 0) {
+    this.isLoading = true;
     this.marvelService.getCharacters(limit, offset).subscribe(
       (response) => {
         this.dataSource.data = response.data.results;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        this.isLoading = false;
       },
       (error) => {
         console.error('Error fetching Marvel characters:', error);
