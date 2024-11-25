@@ -9,18 +9,26 @@ import { MatIcon } from '@angular/material/icon';
 import { CharacterInfoComponent } from '../character-info/character-info.component';
 import { CharacterDeleteComponent } from '../character-delete/character-delete.component';
 import { CharacterEditComponent } from '../character-edit/character-edit.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-marvel-table',
   standalone: true,
-  imports: [MatTableModule, MatPaginator, MatSort, MatSortModule, MatIcon],
+  imports: [
+    MatTableModule,
+    MatPaginator,
+    MatSort,
+    MatSortModule,
+    MatIcon,
+    FormsModule,
+  ],
   templateUrl: './marvel-table.component.html',
   styleUrl: './marvel-table.component.css',
 })
 export class MarvelTableComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'thumbnail', 'actions'];
   dataSource = new MatTableDataSource<any>();
-
+  filterValue: string = '';
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -41,6 +49,10 @@ export class MarvelTableComponent implements OnInit {
         console.error('Error fetching Marvel characters:', error);
       }
     );
+  }
+
+  applyFilter() {
+    this.dataSource.filter = this.filterValue.trim().toLowerCase();
   }
 
   openInfo(character: any): void {
