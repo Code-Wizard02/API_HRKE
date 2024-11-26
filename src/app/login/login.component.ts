@@ -31,7 +31,7 @@ const materialModules = [
 export class LoginComponent {
   user: string = '';
   password: string = '';
-  loginValid= true;
+  loginValid = true;
   @Output() loginSuccess = new EventEmitter<{
     userName: string;
     avatar: string;
@@ -50,7 +50,7 @@ export class LoginComponent {
             userName: this.user,
             avatar: response.avatar!,
           });
-          this.router.navigate(['/dashboard']); // Redirige al usuario a la página principal
+          this.router.navigate(['/dashboard']);
         } else {
           this.loginValid = false;
         }

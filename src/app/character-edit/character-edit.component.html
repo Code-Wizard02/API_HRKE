@@ -1,19 +1,22 @@
-<h1 mat-dialog-title>Editar Personaje</h1>
-<div mat-dialog-content>
-    <mat-form-field>
-        <mat-label>ID</mat-label>
-        <input matInput [(ngModel)]="data.id">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Nombre</mat-label>
-        <input matInput [(ngModel)]="data.name">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Descripción</mat-label>
-        <textarea matInput [(ngModel)]="data.description"></textarea>
-    </mat-form-field>
-</div>
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Cancelar</button>
-    <button mat-button (click)="onSaveClick()">Guardar</button>
+<div class="divprincipal" [ngStyle]="{'background-image': backgroundImageURL}">
+    <button class="close-button" (click)="onNoClick()">x</button>
+    <h1 mat-dialog-title>Editar Personaje</h1>
+    <div class="campos" mat-dialog-content>
+        <mat-form-field>
+            <mat-label>ID</mat-label>
+            <input matInput [(ngModel)]="data.id">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input matInput [(ngModel)]="data.name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Descripción</mat-label>
+            <textarea matInput [(ngModel)]="data.description"></textarea>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button class="botonClose" mat-button (click)="onNoClick()">Cancelar</button>
+        <button class="botonSave" (click)="onSaveClick()">Guardar</button>
+    </div>
 </div>

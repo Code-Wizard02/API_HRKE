@@ -39,20 +39,16 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
-button {
-  margin: 0;
-  padding: 0;
-}
 
 .info {
   justify-content: center;
   align-items: center;
   margin: 0 10px;
-  background-color: orange; /* Color de fondo amarillo */
-  padding: 10px; /* Espaciado interno */
-  border-radius: 5px; /* Bordes redondeados */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  background-color: orange; 
+  padding: 10px; 
+  border-radius: 5px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease; 
   color: white;
   cursor: pointer;
 }
@@ -64,46 +60,42 @@ button {
 .delete {
   justify-content: center;
   align-items: center;
-  background-color: red; /* Color de fondo rojo */
-  color: white; /* Texto blanco */
-  padding: 10px; /* Espaciado interno */
-  border: none; /* Sin borde */
-  border-radius: 5px; /* Bordes redondeados */
-  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  background-color: red; 
+  color: white; 
+  padding: 10px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease; 
   margin: 0 10px;
 }
 
 .delete:hover {
-  background-color: darkred; /* Color de fondo al pasar el ratón */
+  background-color: darkred; 
 }
 
 .edit {
   justify-content: center;
   align-items: center;
-  background-color: green; /* Color de fondo verde */
-  color: white; /* Texto blanco */
-  padding: 10px; /* Espaciado interno */
-  border: none; /* Sin borde */
-  border-radius: 5px; /* Bordes redondeados */
-  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  background-color: green; 
+  color: white; 
+  padding: 10px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease; 
   margin: 0 10px;
 }
 
 .edit:hover {
-  background-color: darkgreen; /* Color de fondo al pasar el ratón */
-}
-
-.loading input[matInput] {
-  margin-bottom: 100px;
+  background-color: darkgreen; 
 }
 
 .loading {
-  margin-top: 100px;
-  margin-bottom: 300px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 .finder {
@@ -146,7 +138,6 @@ mat-paginator {
   left: 0;
   width: 100%;
   height: 100%;
-  /* filter: blur(1px); */
   z-index: -1;
 
 
