@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatSort,MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MarvelService } from '../services/marvel.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -20,11 +20,11 @@ import { CommonModule } from '@angular/common';
     MatTableModule,
     MatPaginator,
     MatSort,
-    MatSortModule,
     MatIcon,
     FormsModule,
     MatSpinner,
     CommonModule,
+    MatSortModule
   ],
   templateUrl: './marvel-table.component.html',
   styleUrl: './marvel-table.component.css',
@@ -33,7 +33,9 @@ export class MarvelTableComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'thumbnail', 'actions'];
   dataSource = new MatTableDataSource<any>();
   filterValue: string = '';
-  isLoading: boolean = true;
+  isLoading: boolean = false;
+  // isLoading: boolean = false;
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -41,19 +43,29 @@ export class MarvelTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCharacters();
+    console.log(this.sort);
   }
 
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
+    // console.log('MatSort initialized:', this.sort);
+  }
+
+
   loadCharacters(limit: number = 50, offset: number = 0) {
-    this.isLoading = true;
+    this.isLoading = false;
     this.marvelService.getCharacters(limit, offset).subscribe(
       (response) => {
         this.dataSource.data = response.data.results;
-        this.dataSource.paginator = this.paginator;
+        // this.dataSource.paginator = this.paginator;
+        // this.isLoading = false;
         this.dataSource.sort = this.sort;
-        this.isLoading = false;
+        console.log(this.sort);
       },
       (error) => {
         console.error('Error fetching Marvel characters:', error);
+        this.isLoading = false;
       }
     );
   }

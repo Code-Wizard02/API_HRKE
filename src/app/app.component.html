@@ -1,6 +1,7 @@
 <div *ngIf="!isLoggedIn">
   <app-login (loginSuccess)="onLoginSuccess($event)"></app-login>
 </div>
+<div class="body"></div>
 <div *ngIf="isLoggedIn">
   <app-dashboard [userName]="userName" [userAvatar]="userAvatar"></app-dashboard>
   <app-marvel-table></app-marvel-table>

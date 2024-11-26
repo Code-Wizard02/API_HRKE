@@ -8,21 +8,6 @@
   border-radius: 50%;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  cursor: pointer;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-li:hover {
-  background-color: #f0f0f0;
-}
-
 mat-toolbar {
   display: flex;
   justify-content: space-between;
@@ -33,6 +18,7 @@ mat-toolbar {
     rgba(120, 40, 40, 0.9360994397759104) 50%,
     rgba(10, 2, 33, 1) 100%
   );
+  z-index: 10;
 }
 
 .title {
@@ -52,3 +38,5 @@ mat-toolbar {
   text-transform: uppercase;
   font-weight: bold;
 }
+
+
