@@ -15,17 +15,15 @@ import { AuthService } from '../services/auth.service';
     MatToolbarModule,
     MatMenuModule,
     CommonModule,
-],
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })
-export class DashboardComponent  {
+export class DashboardComponent {
   @Input() userName: string = '';
   @Input() userAvatar: string = '';
-  
 
-  constructor(private authService:AuthService) {}
-
+  constructor(private authService: AuthService) {}
 
   logout() {
     this.authService.logout();
