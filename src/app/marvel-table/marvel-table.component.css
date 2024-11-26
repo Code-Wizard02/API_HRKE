@@ -1,19 +1,15 @@
 /* src/app/marvel-table/marvel-table.component.css */
 .table-container {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    overflow-x: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .table-header{
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+}
 
 .spinner-container {
   display: flex;
@@ -32,22 +28,15 @@
   z-index: 10;
 }
 
-table {
-  width: 100%;
-}
-
 .mat-elevation-z8 {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .thumbnail {
-  width: 50px;
-  height: auto;
-}
-
-.desc {
-  width: 50%;
-  height: auto;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 button {
@@ -55,6 +44,75 @@ button {
   padding: 0;
 }
 
-.loading input[matInput]{
+.loading input[matInput] {
   margin-bottom: 100px;
+}
+
+.loading {
+  margin-top: 100px;
+  margin-bottom: 300px;
+}
+
+.finder {
+  width: 50%;
+  height: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 250px;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 2px;
+  text-align: center;
+  background: rgb(60, 6, 114);
+  background: linear-gradient(
+    180deg,
+    rgba(60, 6, 114, 0.8772759103641457) 0%,
+    rgba(120, 40, 40, 0.9360994397759104) 50%,
+    rgba(10, 2, 33, 1) 100%
+  );
+  border-color: black;
+}
+
+table{
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.divtabla{
+  width: 100%;
+  max-width: 1200px;
+}
+
+mat-paginator {
+  justify-content: center;
+  color: white;
+  background-color: rgb(93, 93, 93);
+
+  border-radius: 30px;
+}
+
+.background-blur {
+  background-color: black;
+  background-image: url("../../img/background.2.jpeg");
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* filter: blur(1px); */
+  z-index: -1;
+
+
+}
+
+th {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  cursor: pointer;
+}
+
+td {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
 }
