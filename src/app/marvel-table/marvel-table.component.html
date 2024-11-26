@@ -37,21 +37,17 @@
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let character">
   
-  
-          <button mat-icon-button (click)="openInfo(character)">
-            <mat-icon>info</mat-icon>
-          </button>
-  
-  
-          <button mat-icon-button (click)="openDeleteCharacter(character)">
-            <mat-icon>delete</mat-icon>
-          </button>
-  
-  
-          <button mat-icon-button (click)="openEditCharacter(character)">
+          <button class="edit" mat-icon-button (click)="openEditCharacter(character)">
             <mat-icon>edit</mat-icon>
           </button>
   
+          <button class="info" mat-icon-button (click)="openInfo(character)">
+            <mat-icon>info</mat-icon>
+          </button>
+  
+          <button class="delete" mat-icon-button (click)="openDeleteCharacter(character)">
+            <mat-icon>delete</mat-icon>
+          </button>
   
         </td>
       </ng-container>

@@ -44,6 +44,59 @@ button {
   padding: 0;
 }
 
+.info {
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  background-color: orange; /* Color de fondo amarillo */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  color: white;
+  cursor: pointer;
+}
+
+.info:hover {
+  background-color: darkorange;
+}
+
+.delete {
+  justify-content: center;
+  align-items: center;
+  background-color: red; /* Color de fondo rojo */
+  color: white; /* Texto blanco */
+  padding: 10px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  margin: 0 10px;
+}
+
+.delete:hover {
+  background-color: darkred; /* Color de fondo al pasar el ratón */
+}
+
+.edit {
+  justify-content: center;
+  align-items: center;
+  background-color: green; /* Color de fondo verde */
+  color: white; /* Texto blanco */
+  padding: 10px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  margin: 0 10px;
+}
+
+.edit:hover {
+  background-color: darkgreen; /* Color de fondo al pasar el ratón */
+}
+
 .loading input[matInput] {
   margin-bottom: 100px;
 }
@@ -59,17 +112,10 @@ button {
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius: 250px;
-  font-family: "Courier New", Courier, monospace;
   letter-spacing: 2px;
   text-align: center;
-  background: rgb(60, 6, 114);
-  background: linear-gradient(
-    180deg,
-    rgba(60, 6, 114, 0.8772759103641457) 0%,
-    rgba(120, 40, 40, 0.9360994397759104) 50%,
-    rgba(10, 2, 33, 1) 100%
-  );
-  border-color: black;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
 }
 
 table{
