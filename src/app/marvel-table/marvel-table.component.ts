@@ -50,7 +50,7 @@ export class MarvelTableComponent implements OnInit {
   }
 
 
-  loadCharacters(limit: number = 50, offset: number = 0) {
+  loadCharacters(limit: number = 100, offset: number = 0) {
     this.marvelService.getCharacters(limit, offset).subscribe(
       (response) => {
         this.dataSource.data = response.data.results;

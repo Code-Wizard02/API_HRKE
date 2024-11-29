@@ -28,7 +28,7 @@ export class AuthService {
           (u) => u.email === username && u.password === password
         );
         if (user) {
-          localStorage.setItem('token', 'dummy-token'); // Puedes generar un token real aquí
+          localStorage.setItem('token', 'dummy-token');
           localStorage.setItem('isAuthenticaded', 'true');
           localStorage.setItem('userName', user.email);
           localStorage.setItem('avatar', user.avatar);
